@@ -19,6 +19,7 @@ def DOUBLE_CONVERSION_VERSION = reactProperties.getProperty("DOUBLE_CONVERSION_V
 def FOLLY_VERSION = reactProperties.getProperty("FOLLY_VERSION")
 def GLOG_VERSION = reactProperties.getProperty("GLOG_VERSION")
 def REACT_VERSION = reactProperties.getProperty("VERSION_NAME").split("\\.")[1].toInteger()
+def REACT_FULL_VERSION = reactProperties.getProperty("VERSION_NAME")
 
 // We download various C++ open-source dependencies into downloads.
 // We then copy both the downloaded code and our custom makefiles and headers into third-party-ndk.
@@ -456,7 +457,7 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation "com.facebook.react:react-native:${REACT_FULL_VERSION}"  // From node_modules
     implementation "androidx.transition:transition:1.1.0"
     extractHeaders("com.facebook.fbjni:fbjni:0.0.2:headers")
     extractSO("com.facebook.fbjni:fbjni:0.0.2")
